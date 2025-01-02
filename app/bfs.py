@@ -2,7 +2,7 @@ from app.graph import *
 
 class  BreadthFirstSearch:
     @staticmethod
-    def bfs(self, graph: Graph, wantedVertex)->list:
+    def bfs(graph: Graph, wantedVertex)->list:
         path = []
         vertexNotVisitedYet = []
         vertexVisited = set()

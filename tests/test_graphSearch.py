@@ -1,6 +1,7 @@
 import unittest
 from app.graph import *
 from app.bfs import *
+from app.dfs import *
 
 class TestSortAlgorithm(unittest.TestCase):
 
@@ -10,7 +11,16 @@ class TestSortAlgorithm(unittest.TestCase):
         self.assertListEqual(path, pathExpected)
 
         path = BreadthFirstSearch.bfs(self.__mockGraphB(), "a")
+        pathExpected = ['b', 'c', 'e', 'h', 'f', 'd', 'g']
+        self.assertListEqual(path, pathExpected)
+
+    def test_dfs(self):
+        path = DepthFirstSearch.dfs(self.__mockGraphA(), "a")
         pathExpected = ['b', 'd', 'f', 'c', 'g', 'e']
+        self.assertListEqual(path, pathExpected)
+
+        path = DepthFirstSearch.dfs(self.__mockGraphB(), "a")
+        pathExpected =['b', 'c', 'f', 'g', 'h', 'e', 'd']
         self.assertListEqual(path, pathExpected)
 
 
